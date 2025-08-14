@@ -24,7 +24,7 @@ register:
 	}
 
 miner:
-	pm2 start --name $(MINER_NAME) python3 -- precog/miners/miner.py \
+	pm2 start --name $(MINER_NAME) python -- precog/miners/miner.py \
 		--neuron.name $(MINER_NAME) \
 		--wallet.name $(COLDKEY) \
 		--wallet.hotkey $(MINER_HOTKEY) \
