@@ -1,18 +1,20 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Only show critical errors
-
 import time
 from typing import Tuple
 import bittensor as bt
 import pandas as pd
+import numpy as np
+from tensorflow.keras.models import load_model
+
 from precog.protocol import Challenge
 from precog.utils.cm_data import CMData
 from precog.utils.timestamp import get_before, to_datetime, to_str
-import csv
-import numpy as np
-import joblib
-from tensorflow.keras.models import load_model
+
+# import csv
+# import joblib
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Only show critical errors
 
 cached_price_data = None
 last_fetch_time = 0
