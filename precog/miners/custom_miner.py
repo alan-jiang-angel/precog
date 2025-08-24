@@ -4,8 +4,9 @@ from typing import Tuple
 import bittensor as bt
 import pandas as pd
 import numpy as np
-from tensorflow.keras.models import load_model
+import json
 
+from tensorflow.keras.models import load_model
 from precog.protocol import Challenge
 from precog.utils.cm_data import CMData
 from precog.utils.timestamp import get_before, to_datetime, to_str
@@ -20,6 +21,21 @@ cached_price_data = None
 last_fetch_time = 0
 CACHE_DURATION_SECONDS = 60
 model = None
+
+def to_serializable(obj):
+    if hasattr(obj, "__dict__"):
+        return {k: to_serializable(v) for k, v in obj.__dict__.items()}
+    elif isinstance(obj, (list, tuple, set)):
+        return [to_serializable(i) for i in obj]
+    elif isinstance(obj, dict):
+        return {to_serializable(k): to_serializable(v) for k, v in obj.items()}
+    elif isinstance(obj, (str, int, float, bool)) or obj is None:
+        return obj
+    else:
+        return str(obj)
+
+def to_json(obj, **kwargs):
+    return json.dumps(to_serializable(obj), **kwargs)
 
 def get_point_estimate(cm: CMData, timestamp: str) -> float:
     global cached_price_data, last_fetch_time
@@ -105,8 +121,12 @@ def get_point_estimate(cm: CMData, timestamp: str) -> float:
 
 def forward(synapse: Challenge, cm: CMData) -> Challenge:
     global model
+
+    bt.logging.info("[ANALYSIS-SYNAPSE]:" + to_json(synapse, separators=(",", ":")))
+    bt.logging.info("[ANALYSIS-CM]:" + to_json(cm, separators=(",", ":")))
+
     bt.logging.info(
-        f"👈 {synapse.dendrite.hotkey} for {synapse.timestamp}"
+        f"👈 {synapse.dendrite.hotkey} for {synapse.timestamp} from {synapse.dendrite.ip}:{synapse.dendrite.port}"
     )
 
     if  model is None:
