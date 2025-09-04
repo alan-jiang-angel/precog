@@ -35,6 +35,7 @@ flake8 = "^7.3.0"
 pytest = "^8.4.1"
 pre-commit = "^4.3.0"
 tensorflow = "^2.20.0"
+binance = "^0.3.66"
 
 
 [tool.poetry.group.dev.dependencies]

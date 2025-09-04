@@ -303,6 +303,18 @@ files = [
 tests = ["PyHamcrest (>=2.0.2)", "mypy", "pytest (>=4.6)", "pytest-benchmark", "pytest-cov", "pytest-flake8"]
 
 [[package]]
+name = "binance"
+version = "0.3.66"
+description = "binance crypto exchange api client"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "binance-0.3.66-py3-none-any.whl", hash = "sha256:8f0a8778f10afbfb924e1662c02484f409a3714895699a0a9fef2d12398738be"},
+    {file = "binance-0.3.66.tar.gz", hash = "sha256:7af3dfa28052acd312d87a0758cc1eee3a41c42e814923bb60821e4143431947"},
+]
+
+[[package]]
 name = "bittensor"
 version = "9.9.0"
 description = "Bittensor"
@@ -4269,4 +4281,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">= 3.9, < 3.12"
-content-hash = "b06a33d8eb03dd486b67bf86263693eaa424e2b298f7d65b237d6bc44460cb78"
+content-hash = "73354e7130ef604c36cb463b76c695dbba480df4dca72bde0ac688328962c76e"
