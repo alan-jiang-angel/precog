@@ -11,6 +11,7 @@ asyncstdlib==3.13.1
 attrs==25.3.0
 backoff==2.2.1
 base58==2.1.1
+binance==0.3.66
 bittensor==9.1.0
 bittensor-cli==9.1.4
 bittensor-commit-reveal==0.2.0
@@ -81,13 +82,14 @@ packaging==24.2
 pandas==2.2.3
 password-strength==0.0.3.post2
 pathspec==0.12.1
+pillow==11.3.0
 platformdirs==4.3.6
 plotille==5.0.0
 plotly==6.0.1
 pluggy==1.5.0
 pre_commit==4.1.0
 pre_commit_hooks==5.0.0
--e git+ssh://git@github.com/alan-jiang-angel/precog.git@d0659f8350960de30ad61b62157f0317814bc655#egg=precog
+-e git+ssh://git@github.com/alan-jiang-angel/precog.git@2f718aa2a1001357b503e0b5929d8ae0b2a76895#egg=precog
 propcache==0.3.0
 protobuf==5.29.3
 psutil==7.0.0
@@ -122,9 +124,9 @@ smmap==5.0.2
 sniffio==1.3.1
 sortedcontainers==2.4.0
 starlette==0.37.2
-tensorboard==2.19.0
+tensorboard==2.20.0
 tensorboard-data-server==0.7.2
-tensorflow==2.19.0
+tensorflow==2.20.0
 tensorflow-io-gcs-filesystem==0.37.1
 termcolor==2.5.0
 toml==0.10.0
